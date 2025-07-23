@@ -3,173 +3,385 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Software Engineer Portfolio</title>
+  <title>Johnny Lee | Software Engineer Portfolio</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Roboto', Arial, sans-serif;
       margin: 0;
-      background: #f7f9fa;
+      background: #e3e8ee;
       color: #222;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
     header {
-      background: #222;
+      background: #1a2238;
       color: #fff;
-      padding: 2rem 0 1rem 0;
+      padding: 2.5rem 0 1.5rem 0;
       text-align: center;
+      box-shadow: 0 4px 16px rgba(25, 118, 210, 0.15);
+      position: relative;
+      z-index: 2;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       letter-spacing: 2px;
+      animation: fadeInDown 1s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     header p {
-      margin: 0.5rem 0 0 0;
+      margin: 0.7rem 0 0 0;
       font-size: 1.2rem;
-      color: #b0b0b0;
+      color: #5bc0eb;
+      animation: fadeIn 1.5s;
     }
     nav {
-      margin-top: 1rem;
+      margin-top: 1.2rem;
+      animation: fadeIn 2s;
     }
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 1rem;
+      margin: 0 1.2rem;
       font-weight: 700;
-      transition: color 0.2s;
+      font-size: 1.1rem;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
     }
     nav a:hover {
-      color: #4fc3f7;
+      color: #5bc0eb;
+      border-bottom: 2px solid #3a506b;
+    }
+    .contact-bar {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      color: #e3f2fd;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      animation: fadeIn 2.5s;
+    }
+    .contact-bar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .contact-bar a:hover {
+      color: #ffd600;
     }
     main {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      padding: 2rem;
+      max-width: 950px;
+      margin: 2.5rem auto;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
     }
     section {
-      margin-bottom: 2.5rem;
+      background: #e6ecf3;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(26, 34, 56, 0.07);
+      padding: 2rem 1.5rem;
+      margin-bottom: 0;
+      transition: box-shadow 0.3s, transform 0.3s;
+      animation: fadeInUp 1s;
+    }
+    section:hover {
+      box-shadow: 0 8px 32px rgba(58, 80, 107, 0.15);
+      transform: translateY(-4px) scale(1.01);
+      background: #fff;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     h2 {
-      color: #1976d2;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
+      color: #1a2238;
+      margin-bottom: 1.1rem;
+      font-size: 1.6rem;
       border-bottom: 2px solid #e3e3e3;
       padding-bottom: 0.3rem;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    section:hover h2 {
+      color: #3a506b;
     }
     ul {
       padding-left: 1.2rem;
     }
-    .project {
-      margin-bottom: 1.2rem;
+    .exp-card, .project-card {
+      margin-bottom: 1.5rem;
+      padding: 1.2rem 1rem;
+      border-radius: 12px;
+      background: #e6ecf3;
+      box-shadow: 0 1px 6px rgba(26, 34, 56, 0.06);
+      transition: box-shadow 0.2s, background 0.2s;
+      animation: fadeInUp 1.2s;
+      position: relative;
+      overflow: visible;
     }
-    .skills-list {
+    .exp-logo-absolute {
+      position: absolute;
+      top: 1.2rem;
+      left: 1rem;
+      height: 40px;
+      width: 40px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(25,118,210,0.08);
+      object-fit: contain;
+    }
+    .exp-content-absolute {
+      margin-left: 56px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
+      flex-direction: column;
+      align-items: flex-start;
+      width: calc(100% - 56px);
     }
-    .skill {
-      background: #e3f2fd;
-      color: #1976d2;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
+    .exp-title-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+    .exp-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.2rem;
+      width: 100%;
+    }
+    .exp-location {
+      color: #555;
       font-size: 1rem;
-      font-weight: 500;
+      margin-right: 0.5rem;
     }
-    .contact-info {
-      margin-top: 1rem;
+    .exp-flex-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
     }
-    .contact-info a {
-      color: #1976d2;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      font-weight: 500;
+    .exp-logo-col {
+      flex: 0 0 40px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
-    @media (max-width: 600px) {
+    .exp-logo {
+      height: 40px;
+      width: 40px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(25,118,210,0.08);
+      object-fit: contain;
+    }
+    .exp-content-col {
+      flex: 1 1 0%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+    .exp-title-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+    .exp-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.2rem;
+      width: 100%;
+    }
+    .exp-location {
+      color: #555;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+    @media (max-width: 700px) {
       main {
-        padding: 1rem;
+        padding: 0.5rem;
+      }
+      section {
+        padding: 1.2rem 0.5rem;
       }
       header h1 {
         font-size: 2rem;
+      }
+      .contact-bar {
+        gap: 1rem;
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Jane Doe</h1>
-    <p>New Graduate Software Engineer</p>
+    <h1>Johnny Lee</h1>
+    <p>Software Engineer | Seattle, WA</p>
     <nav>
       <a href="#about">About</a>
       <a href="#education">Education</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
     </nav>
+    <div class="contact-bar">
+      <span>425-435-7887</span>
+      <a href="mailto:leejoh004@gmail.com">leejoh004@gmail.com</a>
+      <a href="https://www.linkedin.com/in/johnny-lee2025/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/your-github" target="_blank">GitHub</a>
+    </div>
   </header>
   <main>
     <section id="about">
       <h2>About</h2>
       <p>
-        I am a passionate and detail-oriented software engineer with a strong foundation in computer science and hands-on experience in building web and mobile applications. I thrive in collaborative environments and am eager to contribute to impactful projects as I launch my career.
+        Results-driven software engineer with hands-on experience at DoorDash, Amazon, and Hiya. Skilled in full-stack development, data engineering, and accessibility research, with a proven record of leading projects, delivering scalable solutions, and collaborating across disciplines. Adept at building products from 0 to 1, optimizing infrastructure, and driving innovation in both industry and academic settings. Holds a Bachelor of Science in Computer Science from the University of Washington.
       </p>
     </section>
     <section id="education">
       <h2>Education</h2>
-      <ul>
-        <li>
-          <strong>Bachelor of Science in Computer Science</strong><br>
-          University of Example, 2021 – 2025
-        </li>
-      </ul>
+      <div class="edu-details">
+        <strong>University of Washington, Seattle</strong><br>
+        Bachelor of Science, Computer Science
+        <div style="margin: 0.5rem 0 0.5rem 0;">
+          <span style="display: inline-block; background: #3a506b; color: #fff; font-weight: 700; border-radius: 12px; padding: 0.25em 0.9em; font-size: 1rem; letter-spacing: 1px;">GPA: 3.90 / 4.00</span>
+        </div>
+        <span>September 2022 – June 2025</span>
+      </div>
+      <div class="edu-courses">
+        <strong>Relevant Coursework:</strong> The Hardware/Software Interface, Data Structures & Parallelism, Systems Programming, Software Design, Machine Learning, Databases, Algorithms, Security, Distributed Systems, Natural Language Processing
+      </div>
     </section>
     <section id="experience">
       <h2>Experience</h2>
-      <ul>
-        <li>
-          <strong>Software Engineering Intern</strong> – Tech Startup Inc.<br>
-          June 2024 – August 2024<br>
-          <ul>
-            <li>Developed features for a React web application used by 5,000+ users.</li>
-            <li>Collaborated with a team of 4 engineers using Agile methodologies.</li>
-            <li>Wrote unit and integration tests to ensure code quality.</li>
-          </ul>
-        </li>
-      </ul>
+      <div class="exp-card">
+        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFbAtJ4Rl0SEg/company-logo_200_200/B4EZa2Dj_dHkAI-/0/1746811109671/doordash_logo?e=2147483647&v=beta&t=_5icVPCNbTtbrQdBZcAUD_FKxpgI593Crq7IfDolp7E" alt="DoorDash Logo" class="exp-logo-absolute">
+        <div class="exp-content-absolute">
+          <div class="exp-title-row">
+            <div class="exp-title">Software Engineer</div>
+            <span class="exp-date">Aug 2025 – Present</span>
+          </div>
+          <div class="exp-meta-row">
+            <div class="exp-org">DoorDash</div>
+            <span class="exp-location">Seattle, WA</span>
+          </div>
+        </div>
+        <ul>
+          <li>Driving product and platform innovations beyond restaurant delivery within New Verticals; building products from 0 to 1</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+          <img src="https://media.licdn.com/dms/image/v2/D4E0BAQG-xaSG4D-p6w/company-logo_200_200/company-logo_200_200/0/1699309496642?e=1756339200&v=beta&t=b8OttHEGeB1tGnn978blmLDfp6KjrwBtAOExPYm3j1I" alt="Makeability Lab Logo" style="height: 40px; width: 40px; border-radius: 8px; background: #fff; box-shadow: 0 1px 4px rgba(25,118,210,0.08); object-fit: contain;">
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="exp-title">Research Intern</div>
+              <span class="exp-date">Sep 2024 – Dec 2024</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.2rem;">
+              <div class="exp-org">Makeability Lab</div>
+              <span class="exp-location" style="color: #555; font-size: 1rem;">Seattle, WA</span>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>Contributed 500+ lines of code to Project Sidewalk, an open-source sidewalk accessibility initiative led by Prof. Froehlich</li>
+          <li>Aligned legacy code with new naming conventions by refactoring and debugging 2 core components, improved consistency</li>
+          <li>Boosted label accuracy by 25% for 90,000+ labels across 15 regions by implementing metadata and validation popups</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+          <img src="https://media.licdn.com/dms/image/v2/C560BAQFwDzhWGVWkvA/company-logo_200_200/company-logo_200_200/0/1630568058793?e=1756339200&v=beta&t=Sdo_nr7877D8kM7EWEE4bfm9anVtOF644GF5q5Lxsk4" alt="Paul G. Allen School Logo" style="height: 40px; width: 40px; border-radius: 8px; background: #fff; box-shadow: 0 1px 4px rgba(25,118,210,0.08); object-fit: contain;">
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="exp-title">Lead Teaching Assistant</div>
+              <span class="exp-date">Sep 2024 – Dec 2024</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.2rem;">
+              <div class="exp-org">Paul G. Allen School of Computer Science & Engineering</div>
+              <span class="exp-location" style="color: #555; font-size: 1rem;">Seattle, WA</span>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>Ensured consistent course delivery across 13 sections by managing 26 TAs, streamlining support for 350+ students</li>
+          <li>Increased course engagement by 30% by collaborating with the professor to design assignments, workshops, and class plans</li>
+          <li>Led weekly staff meetings and acted as primary liaison between TAs and the professor</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+          <img src="https://media.licdn.com/dms/image/v2/C560BAQHTvZwCx4p2Qg/company-logo_200_200/company-logo_200_200/0/1630640869849/amazon_logo?e=1756339200&v=beta&t=Glc8CjZnqgVW5R1DBvKJS5hGH4P5ittS_47MbCLeGAQ" alt="Amazon Logo" style="height: 40px; width: 40px; border-radius: 8px; background: #fff; box-shadow: 0 1px 4px rgba(25,118,210,0.08); object-fit: contain;">
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="exp-title">Software Development Engineer Intern</div>
+              <span class="exp-date">Jun 2024 – Sep 2024</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.2rem;">
+              <div class="exp-org">Amazon</div>
+              <span class="exp-location" style="color: #555; font-size: 1rem;">Seattle, WA</span>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>Built a full-stack query tool providing Amazon Science and Fashion teams access to 1M+ previously inaccessible Gen AI assets, leveraging React, TypeScript, Python, and AWS services</li>
+          <li>Owned system design and implementation, collaborated with 5 stakeholders to deliver a scalable solution to organizational analytic needs</li>
+          <li>Optimized global infrastructure deployment by building and deploying 2 CI/CD pipelines using AWS CDK</li>
+          <li>Automated metadata consolidation for 1M+ assets across 8 tables by setting up Airflow DAG, Lake Formation policies, and Glue job</li>
+          <li>Enhanced system reliability and visibility by creating 2 CloudWatch dashboards with real-time metrics and alerts</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+          <img src="https://media.licdn.com/dms/image/v2/C4E0BAQGkH2yXrAi0dQ/company-logo_200_200/company-logo_200_200/0/1630652190338/hiyainc_logo?e=1756339200&v=beta&t=qke3bJPPs79q4KF9nSc0z4aZN0CH6ExSqBmffP9PaAE" alt="Hiya Logo" style="height: 40px; width: 40px; border-radius: 8px; background: #fff; box-shadow: 0 1px 4px rgba(25,118,210,0.08); object-fit: contain;">
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="exp-title">Software Engineer Intern</div>
+              <span class="exp-date">Jun 2023 – Sep 2023</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.2rem;">
+              <div class="exp-org">Hiya Inc.</div>
+              <span class="exp-location" style="color: #555; font-size: 1rem;">Seattle, WA</span>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>Led SQL to Spark migration and redesign of legacy lead-generation tool adopted by 30+ sales representatives, leveraging Python, Databricks, and PySpark</li>
+          <li>Improved customer experience by enabling direct communication between sales and 100% of prospective clients</li>
+          <li>Aggregated 500M+ data points by source, increased output metric availability by 80% while delivering a Salesforce UI for market-facing teams</li>
+          <li>Integrated Salesforce and Databricks via REST APIs, boosting lead-generation efficiency by 25%</li>
+          <li>Minimized long term costs by deprecating 500+ tables and halving runs for non-viable clients at implementation</li>
+        </ul>
+      </div>
     </section>
     <section id="projects">
       <h2>Projects</h2>
-      <div class="project">
-        <strong>Personal Portfolio Website</strong> – <a href="#" target="_blank">View Project</a><br>
-        <span>Designed and developed a responsive personal website using HTML, CSS, and JavaScript.</span>
+      <div class="project-card">
+        <div class="project-title">UMessage <span class="project-tech">| Java</span></div>
+        <ul>
+          <li>Utilized Java and object-oriented programming to replicate iMessage word suggestion and cross-user messaging functionality</li>
+          <li>Implemented tree balancing and message caching algorithms along with Heap, Stack/Queue, Tree, and Trie data structures</li>
+        </ul>
       </div>
-      <div class="project">
-        <strong>Task Manager App</strong> – <a href="#" target="_blank">View Project</a><br>
-        <span>Built a full-stack task management app with Node.js, Express, and MongoDB.</span>
-      </div>
-    </section>
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-list">
-        <span class="skill">JavaScript</span>
-        <span class="skill">Python</span>
-        <span class="skill">React</span>
-        <span class="skill">Node.js</span>
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">Git</span>
-        <span class="skill">SQL</span>
-      </div>
-    </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <a href="mailto:janedoe@email.com">janedoe@email.com</a>
-        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
-        <a href="https://github.com/your-github" target="_blank">GitHub</a>
+      <div class="project-card">
+        <div class="project-title">333gle <span class="project-tech">| C, C++</span></div>
+        <ul>
+          <li>Utilized C/C++ to implement hash table and linked list data structures to create a file search engine</li>
+          <li>Created system which parsed 50,000+ text files and allowed users to search for files with specific words and phrases</li>
+          <li>Implemented sockets in C++ to create interactive webpage search engine for querying and displaying results</li>
+        </ul>
       </div>
     </section>
   </main>
