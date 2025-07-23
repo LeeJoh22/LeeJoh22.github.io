@@ -1,1 +1,177 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Engineer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      background: #f7f9fa;
+      color: #222;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin: 0.5rem 0 0 0;
+      font-size: 1.2rem;
+      color: #b0b0b0;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #4fc3f7;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      color: #1976d2;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #e3e3e3;
+      padding-bottom: 0.3rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .project {
+      margin-bottom: 1.2rem;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .skill {
+      background: #e3f2fd;
+      color: #1976d2;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .contact-info {
+      margin-top: 1rem;
+    }
+    .contact-info a {
+      color: #1976d2;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      font-weight: 500;
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jane Doe</h1>
+    <p>New Graduate Software Engineer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a passionate and detail-oriented software engineer with a strong foundation in computer science and hands-on experience in building web and mobile applications. I thrive in collaborative environments and am eager to contribute to impactful projects as I launch my career.
+      </p>
+    </section>
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>Bachelor of Science in Computer Science</strong><br>
+          University of Example, 2021 – 2025
+        </li>
+      </ul>
+    </section>
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li>
+          <strong>Software Engineering Intern</strong> – Tech Startup Inc.<br>
+          June 2024 – August 2024<br>
+          <ul>
+            <li>Developed features for a React web application used by 5,000+ users.</li>
+            <li>Collaborated with a team of 4 engineers using Agile methodologies.</li>
+            <li>Wrote unit and integration tests to ensure code quality.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <strong>Personal Portfolio Website</strong> – <a href="#" target="_blank">View Project</a><br>
+        <span>Designed and developed a responsive personal website using HTML, CSS, and JavaScript.</span>
+      </div>
+      <div class="project">
+        <strong>Task Manager App</strong> – <a href="#" target="_blank">View Project</a><br>
+        <span>Built a full-stack task management app with Node.js, Express, and MongoDB.</span>
+      </div>
+    </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span class="skill">JavaScript</span>
+        <span class="skill">Python</span>
+        <span class="skill">React</span>
+        <span class="skill">Node.js</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">Git</span>
+        <span class="skill">SQL</span>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <a href="mailto:janedoe@email.com">janedoe@email.com</a>
+        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+        <a href="https://github.com/your-github" target="_blank">GitHub</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
